@@ -591,6 +591,13 @@ ylim_s1 <- c(
 )
 
 # Create an empty log-scaled plotting region.
+
+# Give extra room at the top
+par(
+  mar = c(5, 5, 3, 2) + 0.1,   # inner margins
+  oma = c(0, 0, 1.6, 0)           # outer top margin for main title
+)
+
 plot(
   df_s1[order_s1],
   te_s1[order_s1],
@@ -600,7 +607,7 @@ plot(
   ylim = ylim_s1,
   xlab = "Degrees of Freedom - N/k",
   ylab = "Misclassification Error",
-  main = "Scenario 1: Training/Test Error vs Flexibility",
+  main = "",
   xaxt = "n"
 )
 
@@ -655,20 +662,33 @@ axis(
   at = c(2, 3, 5, 8, 12, 18, 29, 67, 200)
 )
 
-# Top axis: corresponding K values.
+# Top x-axis with K values
 axis(
   3,
   at = N / ks,
   labels = ks,
-  tick = FALSE
+  tick = FALSE,
+  line = -0.2,
+  cex.axis = 0.9
 )
 
-# Label the upper K axis.
+# Label for the top K-axis
 mtext(
   "K - Number of Nearest Neighbors",
   side = 3,
-  line = 1.4
+  line = 2.0
 )
+
+# Main title placed in OUTER margin
+mtext(
+  "Scenario 1: Training/Test Error vs Flexibility",
+  side = 3,
+  outer = TRUE,
+  line = -0.2,
+  font = 2,
+  cex = 1.05
+)
+
 
 # Add a legend.
 legend(
@@ -1244,7 +1264,6 @@ bayes_s2 <- mean(
   bayes_pred_s2 != y_test_s2
 )
 
-
 # ---------------------------------------------------------------------
 # Prepare and draw Figure 2.4
 # ---------------------------------------------------------------------
@@ -1264,6 +1283,12 @@ ylim_s2 <- c(
 )
 
 # Create the error-curve plotting area.
+# Give extra room at the top
+par(
+  mar = c(5, 5, 3, 2) + 0.1,   # inner margins
+  oma = c(0, 0, 1.6, 0)           # outer top margin for main title
+)
+
 plot(
   df_s2[order_s2],
   te_s2[order_s2],
@@ -1273,7 +1298,7 @@ plot(
   ylim = ylim_s2,
   xlab = "Degrees of Freedom - N/k",
   ylab = "Misclassification Error",
-  main = "Scenario 2: Training/Test Error vs Flexibility",
+  main = "",
   xaxt = "n"
 )
 
@@ -1321,26 +1346,41 @@ points(
   cex = 1.1
 )
 
-# Bottom axis: approximate degrees of freedom.
+
+# Bottom axis: effective degrees of freedom.
 axis(
   1,
   at = c(2, 3, 5, 8, 12, 18, 29, 67, 200)
 )
 
-# Top axis: corresponding K values.
+# Top x-axis with K values
 axis(
   3,
   at = N / ks,
   labels = ks,
-  tick = FALSE
+  tick = FALSE,
+  line = -0.2,
+  cex.axis = 0.9
 )
 
-# Label the K axis.
+
+# Label for the top K-axis
 mtext(
   "K - Number of Nearest Neighbors",
   side = 3,
-  line = 1.4
+  line = 2.0
 )
+
+# Main title placed in OUTER margin
+mtext(
+  "Scenario 1: Training/Test Error vs Flexibility",
+  side = 3,
+  outer = TRUE,
+  line = -0.2,
+  font = 2,
+  cex = 1.05
+)
+
 
 # Add the legend.
 legend(
