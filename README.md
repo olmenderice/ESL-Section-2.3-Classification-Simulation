@@ -76,7 +76,7 @@ The analysis uses:
 
 The complete commented R script is available in:
 
-`ESL Assignment 1.R`
+`ESL_Section2.3_Simulation.R`
 
 ## Reference
 
