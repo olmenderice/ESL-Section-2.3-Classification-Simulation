@@ -1363,7 +1363,6 @@ axis(
   cex.axis = 0.9
 )
 
-
 # Label for the top K-axis
 mtext(
   "K - Number of Nearest Neighbors",
@@ -1373,7 +1372,7 @@ mtext(
 
 # Main title placed in OUTER margin
 mtext(
-  "Scenario 1: Training/Test Error vs Flexibility",
+  "Scenario 2: Training/Test Error vs Flexibility",
   side = 3,
   outer = TRUE,
   line = -0.2,
@@ -1381,8 +1380,7 @@ mtext(
   cex = 1.05
 )
 
-
-# Add the legend.
+# legend
 legend(
   "bottomleft",
   legend = c("Train", "Test", "Bayes"),
